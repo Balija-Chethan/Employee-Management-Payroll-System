@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payroll - EPayroll</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><h2>EPayroll</h2></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="employees.html">Employees</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="attendance.html">Attendance</a></li>
+            <li><a href="payroll.html" class="active">Payroll</a></li>
+            <li><a href="payslips.html">Salary Slips</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Payroll Management</h1>
+
+        <div class="form-toggle">
+            <button class="btn btn-primary" onclick="togglePayrollForm()">+ Add Payroll</button>
+        </div>
+
+        <div id="payrollFormContainer" class="form-container hidden">
+            <form id="payrollForm" class="form-card">
+                <h3 id="payFormTitle">Add Payroll Record</h3>
+                <input type="hidden" id="pay_edit_id">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Employee Name</label>
+                        <select id="pay_employee_name" required>
+                            <option value="">Select Employee</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Basic Salary</label>
+                        <input type="number" id="pay_basic_salary" placeholder="Enter basic salary" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Bonus</label>
+                        <input type="number" id="pay_bonus" placeholder="Enter bonus" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Deductions</label>
+                        <input type="number" id="pay_deductions" placeholder="Enter deductions" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Payment Month</label>
+                        <input type="text" id="pay_month" placeholder="e.g. July 2026" required>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" onclick="cancelPayEdit()">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Employee Name</th>
+                        <th>Basic Salary</th>
+                        <th>Bonus</th>
+                        <th>Deductions</th>
+                        <th>Net Salary</th>
+                        <th>Payment Month</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="payrollTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Employee Management & Payroll System. All rights reserved.</p>
+    </footer>
+
+    <script src="/static/script.js"></script>
+    <script>loadPayroll();</script>
+</body>
+</html>

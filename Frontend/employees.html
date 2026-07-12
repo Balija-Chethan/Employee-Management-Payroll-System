@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees - EPayroll</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><h2>EPayroll</h2></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="employees.html" class="active">Employees</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="attendance.html">Attendance</a></li>
+            <li><a href="payroll.html">Payroll</a></li>
+            <li><a href="payslips.html">Salary Slips</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Employee Management</h1>
+
+        <div class="form-toggle">
+            <button class="btn btn-primary" id="toggleFormBtn" onclick="toggleEmployeeForm()">+ Add Employee</button>
+        </div>
+
+        <div id="employeeFormContainer" class="form-container hidden">
+            <form id="employeeForm" class="form-card">
+                <h3 id="formTitle">Add Employee</h3>
+                <input type="hidden" id="emp_edit_id">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="emp_name" placeholder="Enter full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="emp_email" placeholder="Enter email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" id="emp_phone" placeholder="Enter phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Department</label>
+                        <input type="text" id="emp_department" placeholder="Enter department" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Designation</label>
+                        <input type="text" id="emp_designation" placeholder="Enter designation" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Joining Date</label>
+                        <input type="date" id="emp_joining_date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Salary</label>
+                        <input type="number" id="emp_salary" placeholder="Enter salary" required>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" onclick="cancelEdit()">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <table class="data-table" id="employeeTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Department</th>
+                        <th>Designation</th>
+                        <th>Joining Date</th>
+                        <th>Salary</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="employeeTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Employee Management & Payroll System. All rights reserved.</p>
+    </footer>
+
+    <script src="/static/script.js"></script>
+    <script>loadEmployees();</script>
+</body>
+</html>

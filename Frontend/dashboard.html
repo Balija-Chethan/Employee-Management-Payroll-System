@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - EPayroll</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><h2>EPayroll</h2></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="employees.html">Employees</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="attendance.html">Attendance</a></li>
+            <li><a href="payroll.html">Payroll</a></li>
+            <li><a href="payslips.html">Salary Slips</a></li>
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Admin Dashboard</h1>
+
+        <div class="seed-section">
+            <button class="btn btn-secondary" onclick="seedData()">Load Sample Data</button>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="dash-card blue">
+                <div class="dash-icon">👥</div>
+                <h3 id="dashTotalEmployees">0</h3>
+                <p>Total Employees</p>
+            </div>
+            <div class="dash-card green">
+                <div class="dash-icon">🏢</div>
+                <h3 id="dashTotalDepartments">0</h3>
+                <p>Total Departments</p>
+            </div>
+            <div class="dash-card orange">
+                <div class="dash-icon">✅</div>
+                <h3 id="dashPresent">0</h3>
+                <p>Present Today</p>
+            </div>
+            <div class="dash-card red">
+                <div class="dash-icon">❌</div>
+                <h3 id="dashAbsent">0</h3>
+                <p>Absent Today</p>
+            </div>
+            <div class="dash-card purple">
+                <div class="dash-icon">🏖️</div>
+                <h3 id="dashLeave">0</h3>
+                <p>On Leave</p>
+            </div>
+            <div class="dash-card teal">
+                <div class="dash-icon">💰</div>
+                <h3 id="dashTotalPaid">₹0</h3>
+                <p>Total Payroll</p>
+            </div>
+            <div class="dash-card indigo">
+                <div class="dash-icon">📄</div>
+                <h3 id="dashPaid">0</h3>
+                <p>Paid Slips</p>
+            </div>
+            <div class="dash-card amber">
+                <div class="dash-icon">⏳</div>
+                <h3 id="dashPending">0</h3>
+                <p>Pending Slips</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Employee Management & Payroll System. All rights reserved.</p>
+    </footer>
+
+    <script src="/static/script.js"></script>
+    <script>loadDashboard();</script>
+</body>
+</html>

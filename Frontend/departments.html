@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments - EPayroll</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><h2>EPayroll</h2></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="employees.html">Employees</a></li>
+            <li><a href="departments.html" class="active">Departments</a></li>
+            <li><a href="attendance.html">Attendance</a></li>
+            <li><a href="payroll.html">Payroll</a></li>
+            <li><a href="payslips.html">Salary Slips</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Department Management</h1>
+
+        <div class="form-toggle">
+            <button class="btn btn-primary" onclick="toggleDepartmentForm()">+ Add Department</button>
+        </div>
+
+        <div id="departmentFormContainer" class="form-container hidden">
+            <form id="departmentForm" class="form-card">
+                <h3 id="deptFormTitle">Add Department</h3>
+                <input type="hidden" id="dept_edit_id">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Department Name</label>
+                        <input type="text" id="dept_name" placeholder="Enter department name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Manager Name</label>
+                        <input type="text" id="dept_manager" placeholder="Enter manager name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Total Employees</label>
+                        <input type="number" id="dept_total" placeholder="Enter total employees" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" id="dept_location" placeholder="Enter location" required>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" onclick="cancelDeptEdit()">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <table class="data-table" id="departmentTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Department Name</th>
+                        <th>Manager</th>
+                        <th>Total Employees</th>
+                        <th>Location</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="departmentTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Employee Management & Payroll System. All rights reserved.</p>
+    </footer>
+
+    <script src="/static/script.js"></script>
+    <script>loadDepartments();</script>
+</body>
+</html>

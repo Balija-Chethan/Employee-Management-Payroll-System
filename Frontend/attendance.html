@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance - EPayroll</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><h2>EPayroll</h2></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="employees.html">Employees</a></li>
+            <li><a href="departments.html">Departments</a></li>
+            <li><a href="attendance.html" class="active">Attendance</a></li>
+            <li><a href="payroll.html">Payroll</a></li>
+            <li><a href="payslips.html">Salary Slips</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Attendance Management</h1>
+
+        <div class="form-toggle">
+            <button class="btn btn-primary" onclick="toggleAttendanceForm()">+ Mark Attendance</button>
+        </div>
+
+        <div id="attendanceFormContainer" class="form-container hidden">
+            <form id="attendanceForm" class="form-card">
+                <h3 id="attFormTitle">Mark Attendance</h3>
+                <input type="hidden" id="att_edit_id">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Employee Name</label>
+                        <select id="att_employee_name" required>
+                            <option value="">Select Employee</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" id="att_date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Check In</label>
+                        <input type="time" id="att_check_in" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Check Out</label>
+                        <input type="time" id="att_check_out" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select id="att_status" required>
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                            <option value="Leave">Leave</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" onclick="cancelAttEdit()">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Employee Name</th>
+                        <th>Date</th>
+                        <th>Check In</th>
+                        <th>Check Out</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="attendanceTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Employee Management & Payroll System. All rights reserved.</p>
+    </footer>
+
+    <script src="/static/script.js"></script>
+    <script>loadAttendance();</script>
+</body>
+</html>
